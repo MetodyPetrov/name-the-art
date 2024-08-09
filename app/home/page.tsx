@@ -5,29 +5,15 @@ export default function Home() {
   interface LinkInfo {
     title: string,
     to: string,
-    color: string
+    color: string,
+    hover: string
   }
   const navigation: LinkInfo[] = [ 
-    { title: 'PLAY', to: "/play", color: 'bg-red-500' },
-    { title: 'LEADERBOARD', to: "/leaderboard", color: 'bg-yellow-400' },
-    { title: 'INSTRUCTIONS', to: "/rules", color: 'bg-slate-400' },
-    { title: 'LOGIN', to: "/login", color: 'bg-blue-400' }
+    { title: 'PLAY', to: "/play", color: 'bg-red-500', hover: 'hover:bg-red-600' },
+    { title: 'LEADERBOARD', to: "/leaderboard", color: 'bg-yellow-400', hover: 'hover:bg-yellow-500' },
+    { title: 'INSTRUCTIONS', to: "/rules", color: 'bg-slate-400', hover: 'hover:bg-slate-500' },
+    { title: 'LOGIN', to: "/login", color: 'bg-blue-400', hover: 'hover:bg-blue-500' }
   ];
-
-  function getHoverColor(initialColor: string) {
-    const colorNum = initialColor.match(/\d+/);
-    let number: number = parseInt(colorNum ? colorNum[0] : '');
-
-    if(number === 50) number = 100;
-    else if(number === 950) number = 900;
-    else number += 100;
-
-    if(colorNum) {
-      return 'hover:' + initialColor.replace(colorNum[0], number.toString());
-    } else {
-      return '';
-    }
-  }
 
   return (
     <main className="flex min-h-screen flex-col items-center gap-8 p-24 bg-[rgb(254,250,224)]">
@@ -45,13 +31,13 @@ export default function Home() {
       <nav className="flex min-w-full justify-between">
         {
           navigation.map( (link: LinkInfo) => {
-              const hoverColor = getHoverColor(link.color);
               return (
                 <Link 
                   href={link.to}
                   key={link.to}
-                  className={`${hoverColor} ${link.color} rounded-md p-5 font-bold text-5xl`}
-                >{link.title}</Link> 
+                  style={{ transition: 'all 0.4s' }}
+                  className={`${link.hover} ${link.color} rounded-md p-5 font-bold text-5xl`}
+                >{link.title}</Link>
               )
             }
           )
