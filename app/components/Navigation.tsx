@@ -1,4 +1,4 @@
-import Link from "next/link";
+import NavLink from "./NavLink";
 
 export interface LinkInfo {
   title: string,
@@ -16,26 +16,9 @@ export const navigation = [
 ];
 
 export default function Navigation() {
-    return (
-        <menu className="w-full flex justify-between">
-        {
-          navigation.map((link: LinkInfo, i) => {
-              let rounding: string;
-              if(i === 0) rounding = 'rounded-tr-md rounded-br-md';
-              else if(i === navigation.length - 1) rounding = 'rounded-tl-md rounded-bl-md';
-              else rounding = 'rounded-tl-md rounded-bl-md rounded-tr-md rounded-br-md';
-              
-              return (
-                <Link
-                  href={link.to}
-                  key={link.to}
-                  style={{ transition: 'all 0.4s' }}
-                  className={`${link.hover} ${rounding} p-5 font-bold text-5xl`}
-                >{link.title}</Link>
-              )
-            }
-          )
-        }
-        </menu>
-    )
+  return (
+      <menu className="w-full flex justify-between">
+      { navigation.map((link: LinkInfo, i) => <NavLink link={link} key={i} index={i}>{link.title}</NavLink>) }
+      </menu>
+  )
 }
