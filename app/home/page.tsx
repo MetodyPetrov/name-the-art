@@ -5,7 +5,7 @@ export default function Home() {
 
   const links: LinkInfo[] = navigation;
   return (
-    <main className="flex min-h-screen flex-col items-center gap-8 p-24 bg-[rgb(254,250,224)]">
+    <div className="flex min-h-screen flex-col items-center gap-8 p-24 bg-[rgb(254,250,224)]">
       <h1 className="font-bold text-8xl m-2 pointer-events-none select-none">Guess the art!</h1>
       <pre className="text-wrap">
         <br/>
@@ -32,6 +32,6 @@ export default function Home() {
           // )
         }
       </nav>
-    </main>
+    </div>
   );
 }
