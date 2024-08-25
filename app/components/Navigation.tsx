@@ -18,7 +18,7 @@ export const navigation = [
 export default function Navigation() {
   return (
       <menu className="w-full flex justify-between">
-      { navigation.map((link: LinkInfo, i) => <NavLink link={link} key={i} index={i}>{link.title}</NavLink>) }
+        { navigation.map((link: LinkInfo, i) => <NavLink link={link} key={i} index={i}>{link.title}</NavLink>) }
       </menu>
   )
 }
