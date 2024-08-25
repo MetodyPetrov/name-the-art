@@ -1,6 +1,6 @@
 export default function Instructions() {
     return (
-        <main className="flex min-h-screen flex-col items-center gap-8 p-24 bg-[rgb(204,213,174)] text-slate-700">
+        <div className="flex flex-col items-center gap-8 p-24 bg-[rgb(204,213,174)] text-slate-700 w-full">
             <h1 className="font-bold text-8xl m-2 pointer-events-none select-none text-black">The rules are simple!</h1>
             <br/>
             <section className="max-w-7xl text-wrap text-center">
@@ -22,6 +22,6 @@ export default function Instructions() {
                     </p>
                 </div>
             </section>
-        </main>
+        </div>
     );
 }
