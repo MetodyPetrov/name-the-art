@@ -14,8 +14,12 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navigation />
-        {children}
+        <div className="min-h-screen flex flex-col">
+          <Navigation />
+          <main className="w-full flex justify-between flex-grow">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
